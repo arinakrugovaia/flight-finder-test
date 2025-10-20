@@ -1,0 +1,99 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-primary-dark: #4a4a4a;
+  --color-primary-white: #ffffff;
+  --color-primary-blue: #2196f3;
+  --color-secondary-blue: #f1fcff;
+  --color-secondary-gray: #a0b0b9;
+  --color-secondary-light-gray: #dfe5ec;
+
+  --radius-base: 5px;
+  --shadow-base: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  background-color: #f3f7fa;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  border-radius: 5px;
+  border: 1px solid transparent;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #2196f3;
+  color: #ffffff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #007adb;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.transfer-amount-filter input[type='checkbox'] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.transfer-amount-filter:hover {
+  background-color: #f1fcff;
+}
+
+.transfer-amount-filter .custom-checkbox {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #9abbce;
+  border-radius: 2px;
+  position: relative;
+  flex-shrink: 0;
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.transfer-amount-filter input:checked + .custom-checkbox::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: url('./images/checkmark.svg') center/contain no-repeat;
+}
+
+.transfer-amount-filter input:checked + .custom-checkbox {
+  border-color: #2196f3;
+}
+
+.sort input {
+  display: none;
+}
+
+.sort input:checked + label {
+  background: #2196f3;
+  color: #ffffff;
+}
