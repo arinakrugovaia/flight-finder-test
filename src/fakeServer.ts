@@ -5,11 +5,7 @@ import express from 'express'
 const app = express()
 const PORT = 4000
 
-app.use(
-  cors({
-    origin: 'http://localhost:5173',
-  }),
-)
+app.use(cors());
 
 const ORIGIN: Airport = { city: 'Moscow', code: 'SVO' }
 const DESTINATION: Airport = { city: 'Paris', code: 'CDG' }
