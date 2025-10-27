@@ -4,7 +4,7 @@ const initialTransfersAmount: TotalTransferAmounts = Object.fromEntries(
   [0, 1, 2, 3, 4, 5, 6].map((n) => [n, true]),
 ) as TotalTransferAmounts
 
-export const initialState: AppState = {
+export const INITIAL_STATE: AppState = {
   search: {
     allTickets: [],
     visibleCount: 5,

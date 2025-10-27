@@ -16,12 +16,7 @@ export function SortItem({
   className,
 }: SortItemProps) {
   return (
-    <div
-      className={twMerge(
-        className,
-        'sort sm:max-w-1/3 w-full h-full bg-primary-white',
-      )}
-    >
+    <div className={twMerge(className, 'sort flex-1 h-full bg-primary-white')}>
       <input
         type="radio"
         id={`sort-${sortName}`}

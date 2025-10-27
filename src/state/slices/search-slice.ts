@@ -1,30 +1,31 @@
 import { fetchTickets } from '@/api/SearchRequestApi.ts'
 import { TICKETS_PER_PAGE } from '@/state/constants/search-constants.ts'
-import { initialState } from '@/state/initialState.ts'
+import { INITIAL_STATE } from '@/state/initialState.ts'
 import type { Tickets } from '@/types/types.ts'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-export const fetchTicketsThunk = createAsyncThunk<Tickets, void, { rejectValue: string }>(
-  'search/fetchTickets',
-  async (_, { rejectWithValue }) => {
-    try {
-      const data = await fetchTickets()
-      return data
-    } catch (err) {
-      return rejectWithValue((err as Error).message || 'Неизвестная ошибка')
-    }
+export const fetchTicketsThunk = createAsyncThunk<
+  Tickets,
+  void,
+  { rejectValue: string }
+>('search/fetchTickets', async (_, { rejectWithValue }) => {
+  try {
+    const data = await fetchTickets()
+    return data
+  } catch (err) {
+    return rejectWithValue((err as Error).message || 'Неизвестная ошибка')
   }
-)
+})
 
 const searchSlice = createSlice({
   name: 'search',
-  initialState: initialState.search,
+  initialState: INITIAL_STATE.search,
   reducers: {
     showMoreTickets(state) {
       state.visibleCount += TICKETS_PER_PAGE
     },
     refreshSearchState() {
-      return initialState.search
+      return INITIAL_STATE.search
     },
   },
   extraReducers: (builder) => {

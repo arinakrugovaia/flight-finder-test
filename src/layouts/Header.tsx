@@ -15,8 +15,8 @@ export function Header() {
   }
 
   return (
-    <div className="w-full h-[80px] md:h-[120px] flex justify-center cursor-pointer">
+    <header className="w-full h-[80px] md:h-[120px] flex justify-center cursor-pointer">
       <img src={logo} alt="App Logo" onClick={handleClick} />
-    </div>
+    </header>
   )
 }

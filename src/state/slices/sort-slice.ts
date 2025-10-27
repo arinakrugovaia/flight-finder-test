@@ -1,10 +1,10 @@
 import { CHEAPEST, FASTEST, OPTIMAL } from '@/state/constants/sort-constants.ts'
-import { initialState } from '@/state/initialState.ts'
+import { INITIAL_STATE } from '@/state/initialState.ts'
 import { createSlice } from '@reduxjs/toolkit'
 
 const sortSlice = createSlice({
   name: 'sort',
-  initialState: initialState.sort,
+  initialState: INITIAL_STATE.sort,
   reducers: {
     sortByCheapest() {
       return CHEAPEST
@@ -16,7 +16,7 @@ const sortSlice = createSlice({
       return OPTIMAL
     },
     refreshSortState() {
-      return initialState.sort
+      return INITIAL_STATE.sort
     },
   },
 })

@@ -1,4 +1,4 @@
-export const sortsInfo = {
+export const SORTS_INFO = {
   cheapest: {
     sortName: 'cheapest',
     sortText: 'САМЫЙ ДЕШЕВЫЙ',

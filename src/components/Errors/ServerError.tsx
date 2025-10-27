@@ -21,7 +21,8 @@ export function ServerError({ message }: ServerErrorProps) {
       </svg>
       <p className="text-base font-medium">Ошибка при загрузке билетов</p>
       <p className="text-secondary-gray text-xs text-center max-w-[250px]">
-        {message || 'Попробуйте обновить страницу нажав на иконку самолета или повторить запрос позже ✈️'}
+        {message ||
+          'Попробуйте обновить страницу нажав на иконку самолета или повторить запрос позже ✈️'}
       </p>
     </div>
   )

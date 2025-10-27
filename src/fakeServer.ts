@@ -5,7 +5,7 @@ import express from 'express'
 const app = express()
 const PORT = 4000
 
-app.use(cors());
+app.use(cors())
 
 const ORIGIN: Airport = { city: 'Moscow', code: 'SVO' }
 const DESTINATION: Airport = { city: 'Paris', code: 'CDG' }
@@ -42,13 +42,13 @@ function generateTickets(ticketsAmount: number = 15): Tickets {
   })
 }
 
-app.get('/tickets', (_req, res) => {
+app.get('/tickets', (_, res) => {
   if (Math.random() < 0.1) {
-    return res.status(500).json({ message: 'Сервер временно недоступен.' });
+    return res.status(500).json({ message: 'Сервер временно недоступен.' })
   }
 
-  const tickets = generateTickets(15);
-  res.json(tickets);
+  const tickets = generateTickets(15)
+  res.json(tickets)
 })
 
 app.listen(PORT, () => {

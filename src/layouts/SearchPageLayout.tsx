@@ -1,4 +1,4 @@
-import { ServerError } from '@/components/ServerError/ServerError.tsx'
+import { ServerError } from '@/components/Errors/ServerError.tsx'
 import { Sorts } from '@/components/Sorts/Sorts.tsx'
 import { NoTickets, Ticket, TicketLoader } from '@/components/Tickets'
 import { TICKETS_PER_PAGE } from '@/state/constants/search-constants.ts'
@@ -20,12 +20,14 @@ export function SearchPageLayout() {
 
   function renderTicketsOrLoader() {
     if (searchStatus === 'loading') {
-      return Array.from({ length: TICKETS_PER_PAGE }, (_, i) => <TicketLoader key={i} />)
+      return Array.from({ length: TICKETS_PER_PAGE }, (_, i) => (
+        <TicketLoader key={i} />
+      ))
     }
     if (tickets.length === 0) {
       return <NoTickets />
     }
-    return tickets.map(ticket => (
+    return tickets.map((ticket) => (
       <Ticket key={ticket.id}>
         <Ticket.Header ticket={ticket} />
         <Ticket.Body ticket={ticket} />
@@ -34,7 +36,8 @@ export function SearchPageLayout() {
   }
 
   return (
-    <div className="flex flex-col md:flex-row justify-between items-start gap-4 lg:gap-8">
+    <main className="flex flex-col md:flex-row justify-between items-start gap-4 lg:gap-8">
+      <h1 className="visually-hidden">Flight Finder App </h1>
       <FiltersLayout />
       <div className="w-full flex flex-col gap-4 lg:gap-8">
         <Sorts />
@@ -42,9 +45,14 @@ export function SearchPageLayout() {
           {renderTicketsOrLoader()}
         </div>
         {searchStatus === 'succeeded' && tickets.length > 0 && (
-          <button className="p-3 md:p-5 text-sm md:text-base" onClick={() => dispatch(showMoreTickets())}>ЕЩЕ</button>
+          <button
+            className="p-3 md:p-5 text-sm md:text-base"
+            onClick={() => dispatch(showMoreTickets())}
+          >
+            ЕЩЕ
+          </button>
         )}
       </div>
-    </div>
+    </main>
   )
 }

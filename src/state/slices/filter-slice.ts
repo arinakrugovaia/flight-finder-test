@@ -1,4 +1,4 @@
-import { initialState } from '@/state/initialState.ts'
+import { INITIAL_STATE } from '@/state/initialState.ts'
 import type {
   TotalTransferAmounts,
   TransferAmountNumber,
@@ -11,7 +11,7 @@ interface FilterState {
 
 export const filterSlice = createSlice({
   name: 'filters',
-  initialState: initialState.filters as FilterState,
+  initialState: INITIAL_STATE.filters as FilterState,
   reducers: {
     checkTransferAmount(state, action: PayloadAction<TransferAmountNumber>) {
       state.transfersAmount[action.payload as keyof TotalTransferAmounts] = true
@@ -46,7 +46,7 @@ export const filterSlice = createSlice({
       state.transfersAmount = { ...state.transfersAmount, ...newTransfersObj }
     },
     refreshTransfersState() {
-      return initialState.filters
+      return INITIAL_STATE.filters
     },
   },
 })

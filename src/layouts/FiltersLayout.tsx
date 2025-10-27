@@ -78,7 +78,7 @@ export function FiltersLayout() {
   )
 
   return (
-    <div className="md:max-w-[260px] w-full bg-primary-white py-4 lg:py-5 rounded-base shadow-base">
+    <aside className="md:max-w-[260px] w-full bg-primary-white py-4 lg:py-5 rounded-base shadow-base">
       <div className="pl-5 mb-2 md:mb-3 text-sm uppercase text-primary-dark">
         Количество пересадок
       </div>
@@ -92,6 +92,6 @@ export function FiltersLayout() {
         onChange={handleNoTransfersChange}
       />
       {transfersAmountFilters}
-    </div>
+    </aside>
   )
 }

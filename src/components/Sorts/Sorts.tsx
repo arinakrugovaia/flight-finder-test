@@ -1,5 +1,5 @@
 import { SortItem } from '@/components/Sorts/SortItem.tsx'
-import { sortsInfo } from '@/constants/sort.ts'
+import { SORTS_INFO } from '@/constants/sort.ts'
 import { CHEAPEST, FASTEST, OPTIMAL } from '@/state/constants/sort-constants.ts'
 import { getSort } from '@/state/selectors.ts'
 import {
@@ -27,20 +27,26 @@ export function Sorts() {
   }
 
   return (
-    <div className="flex flex-col sm:flex-row divide-y sm:divide-x divide-secondary-light-gray border border-secondary-light-gray rounded-base">
+    <div
+      className="
+      flex flex-col divide-y sm:flex-row sm:divide-y-0 sm:divide-x
+      divide-secondary-light-gray border border-secondary-light-gray
+      rounded-base
+    "
+    >
       <SortItem
-        {...sortsInfo.cheapest}
+        {...SORTS_INFO.cheapest}
         onChange={handleCheapestSortClick}
         checked={sort === CHEAPEST}
         className="rounded-l-base"
       />
       <SortItem
-        {...sortsInfo.fastest}
+        {...SORTS_INFO.fastest}
         onChange={handleFastestSortClick}
         checked={sort === FASTEST}
       />
       <SortItem
-        {...sortsInfo.optimal}
+        {...SORTS_INFO.optimal}
         onChange={handleOptimalSortClick}
         checked={sort === OPTIMAL}
         className="rounded-r-base"
